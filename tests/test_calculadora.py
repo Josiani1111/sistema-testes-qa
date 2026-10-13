@@ -42,3 +42,8 @@ def test_dividir_numeros_negativos():
 
 def test_dividir_resultado_decimal():
     assert dividir(5, 2) == 2.5
+
+
+def test_somar_com_texto():
+    with pytest.raises(TypeError):
+        somar("abc", 2)
