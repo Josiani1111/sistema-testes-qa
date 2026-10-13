@@ -3,3 +3,7 @@ __pycache__/
 *.py[cod]
 .pytest_cache/
 .env
+
+# Arquivos de cobertura de testes
+.coverage
+htmlcov/

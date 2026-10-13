@@ -1,10 +1,20 @@
-﻿import pytest
+﻿
+import pytest
 
 from src.calculadora import somar, subtrair, multiplicar, dividir
 
 
-def test_somar():
-    assert somar(2, 3) == 5
+@pytest.mark.parametrize(
+    "a, b, esperado",
+    [
+        (2, 3, 5),
+        (-2, -3, -5),
+        (2.5, 1.5, 4.0),
+        (0, 0, 0),
+    ],
+)
+def test_somar_parametrizado(a, b, esperado):
+    assert somar(a, b) == esperado
 
 
 def test_subtrair():
@@ -22,14 +32,6 @@ def test_dividir():
 def test_dividir_por_zero():
     with pytest.raises(ValueError):
         dividir(10, 0)
-
-
-def test_somar_numeros_negativos():
-    assert somar(-2, -3) == -5
-
-
-def test_somar_numeros_decimais():
-    assert somar(2.5, 1.5) == 4.0
 
 
 def test_multiplicar_por_zero():
